@@ -1,8 +1,6 @@
 "use client"
 import * as React from "react"
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
-import { useAuth, VIEWS } from '../supabaseProvider'
-import supabse from '@/lib/supabaseBrowserClient'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { cn } from "@/lib/utils"
@@ -15,7 +13,6 @@ interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> { }
 
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
     const [isLoading, setIsLoading] = React.useState<boolean>(false)
-    const { setView } = useAuth();
     const [errorMsg, setErrorMsg] = useState<any>(null);
     const [email, setEmail] = useState<string>('')
     const router = useRouter()
